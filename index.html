@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistema acadêmico para consulta e reserva de laboratórios." />
+  <title>LabReserve | Gestão Acadêmica</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#inicio" aria-label="LabReserve início"><span class="brand-mark">LR</span><span><strong>LabReserve</strong><small>GESTÃO ACADÊMICA</small></span></a>
+    <nav aria-label="Navegação principal">
+      <p>MENU PRINCIPAL</p>
+      <a class="nav-link active" href="#inicio">▦ <span>Visão geral</span></a>
+      <a class="nav-link" href="#laboratorios">⚗ <span>Laboratórios</span><em>RF01</em></a>
+      <a class="nav-link" href="#nova-reserva">⊕ <span>Nova reserva</span><em>RF02</em></a>
+      <a class="nav-link" href="#minhas-reservas">▣ <span>Minhas reservas</span><b id="reservationCount">0</b></a>
+    </nav>
+    <div class="sidebar-status"><span>Período letivo</span><strong>2025.1</strong><span class="online">● Sistema operacional</span></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <span class="breadcrumb">LabReserve <i>›</i> Ambiente acadêmico</span>
+      <button class="mobile-menu" aria-label="Abrir menu">☰</button>
+      <div class="profile"><span class="avatar">MV</span><span><strong>Prof. Dr. Marcelo Vasconcelos</strong><small>SIAPE • 1984201</small></span></div>
+    </header>
+
+    <section id="inicio" class="hero">
+      <div><span class="eyebrow">TERMINAL DE CONTROLE ACADÊMICO</span><h1>Reserve o laboratório certo para a sua aula.</h1><p>Consulte ambientes, confira regras de capacidade e acompanhe suas solicitações em um só lugar.</p></div>
+      <a class="button primary" href="#nova-reserva">＋ Nova reserva</a>
+    </section>
+
+    <section class="metrics" aria-label="Resumo operacional">
+      <article><span>LABORATÓRIOS</span><strong>03</strong><small>Ambientes cadastrados</small></article>
+      <article><span>DISPONÍVEIS</span><strong class="blue">02</strong><small>Prontos para reserva</small></article>
+      <article><span>EM MANUTENÇÃO</span><strong class="coral">01</strong><small>Laboratório indisponível</small></article>
+      <article><span>RESERVAS ATIVAS</span><strong id="activeMetric">00</strong><small>Durante esta sessão</small></article>
+    </section>
+
+    <section id="laboratorios" class="section-heading"><div><span class="eyebrow">RF01 · CATÁLOGO ATIVO</span><h2>Consulta e alocação de laboratórios</h2><p>Escolha ambientes conforme disponibilidade, capacidade e finalidade acadêmica.</p></div></section>
+    <div id="labCards" class="lab-grid" aria-live="polite"></div>
+
+    <section id="nova-reserva" class="reservation-layout">
+      <div class="form-card">
+        <div class="card-heading"><div><span class="eyebrow">RF02 · RF03</span><h2>Solicitar nova reserva</h2></div><span class="step">Etapa 1 de 1</span></div>
+        <form id="reservationForm" novalidate>
+          <div class="fields">
+            <label>Laboratório <span>*</span><select id="laboratory" required><option value="">Selecione um laboratório</option></select></label>
+            <label>Finalidade <span>*</span><select id="purpose" required><option value="">Selecione a finalidade</option><option>Aula regular</option><option>Atividade especial</option><option>Monitoria</option><option>Pesquisa</option></select></label>
+            <label>Data <span>*</span><input id="date" type="date" required /></label>
+            <label>Horário <span>*</span><select id="time" required><option value="">Selecione o horário</option><option>08:00 – 10:00</option><option>10:00 – 12:00</option><option>14:00 – 16:00</option><option>16:00 – 18:00</option></select></label>
+          </div>
+          <div id="validationMessage" class="validation" hidden></div>
+          <p class="form-note">* Campos obrigatórios. Laboratórios com menos de 30 vagas não podem receber aulas regulares.</p>
+          <button class="button primary full" type="submit">Confirmar reserva</button>
+        </form>
+      </div>
+      <aside class="rules-card"><span class="eyebrow">DIRETRIZ ACADÊMICA</span><h3>Regras de capacidade</h3><p>Aulas regulares exigem laboratórios com, no mínimo, <strong>30 alunos de capacidade</strong>.</p><hr><p><strong>Lab 03</strong> possui 25 vagas e está liberado apenas para atividades especiais, pesquisa e monitoria.</p></aside>
+    </section>
+
+    <section id="minhas-reservas" class="reservations-section">
+      <div class="section-heading compact"><div><span class="eyebrow">RF05 · HISTÓRICO DE ALOCAÇÃO</span><h2>Minhas reservas</h2><p>Solicitações registradas durante a execução desta página.</p></div><span id="tableBadge" class="badge">0 reservas</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Laboratório</th><th>Data</th><th>Horário</th><th>Finalidade</th><th>Status</th></tr></thead><tbody id="reservationsBody"><tr class="empty"><td colspan="5">Nenhuma reserva realizada ainda. Preencha o formulário acima para começar.</td></tr></tbody></table></div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
