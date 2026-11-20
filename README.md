@@ -92,6 +92,6 @@ Abra o arquivo index.html diretamente em qualquer navegador moderno (Google Chro
 
 Documentado por jair liberato da silva filho-01864955/Sistemas de informanção
 Desenvolvido por Marcelo Nascimento Silva-01865122/Engenharia da computação, 
-              Chrystian Eduardo Santos Sousa-01862423/Sistemas de informação.
+Desenvolvido por Chrystian Eduardo Santos Sousa-01862423/Sistemas de informação.
 
 Atividade Prática — UNINASSAU | Disciplina: Maturidade em Desenvolvimento de Software
